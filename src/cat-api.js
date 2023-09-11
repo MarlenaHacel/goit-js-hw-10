@@ -43,17 +43,15 @@ export function fetchCatByBreed(breedId) {
     .then(response => {
       loader.style.display = 'none';
       const catInfo = response.data[0];
-      const catImage = document.querySelector('.cat-image');
-      const catName = document.querySelector('.cat-name');
-      const catDescription = document.querySelector('.cat-description');
-      const catTemperament = document.querySelector('.cat-temperament');
-      catImage.src = catInfo.url;
-      catName.textContent = catInfo.breeds[0].name;
-      catDescription.textContent = catInfo.breeds[0].description;
-      catTemperament.textContent = catInfo.breeds[0].temperament;
-      document.querySelector('.cat-info').style.display = 'block';
+      const catData = {
+        url: catInfo.url,
+        name: catInfo.breeds[0].name,
+        description: catInfo.breeds[0].description,
+        temperament: catInfo.breeds[0].temperament,
+      };
 
-      return catInfo;
+      // Zwracamy dane kota zamiast aktualizować nieistniejące elementy
+      return catData;
     })
     .catch(error => {
       loader.style.display = 'none';
