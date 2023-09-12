@@ -1,0 +1,28 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+select {
+  margin-left: 20px;
+}
+div {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+img {
+  display: block;
+  padding-right: 15px;
+  max-width: 350px;
+  max-height: 450px;
+}
+
+h2 {
+  font-size: 24px;
+}
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 10px 20px;
+}

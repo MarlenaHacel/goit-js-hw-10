@@ -8,8 +8,6 @@ const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
 export function fetchBreeds() {
-  breedSelect.style.display = 'none';
-  catInfo.style.display = 'none';
   loader.style.display = 'block';
 
   return axios
@@ -23,7 +21,6 @@ export function fetchBreeds() {
         option.textContent = breed.name;
         breedSelect.appendChild(option);
       });
-      breedSelect.style.display = 'block';
 
       return breeds;
     })
@@ -35,7 +32,6 @@ export function fetchBreeds() {
 }
 
 export function fetchCatByBreed(breedId) {
-  catInfo.style.display = 'none';
   loader.style.display = 'block';
 
   return axios
@@ -49,8 +45,6 @@ export function fetchCatByBreed(breedId) {
         description: catInfo.breeds[0].description,
         temperament: catInfo.breeds[0].temperament,
       };
-
-      // Zwracamy dane kota zamiast aktualizować nieistniejące elementy
       return catData;
     })
     .catch(error => {
